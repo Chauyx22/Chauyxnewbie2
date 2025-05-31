@@ -1,0 +1,398 @@
+/* =======================================================
+   1. Reset CSS – รีเซ็ตค่าพื้นฐานให้ทุกเบราว์เซอร์เท่ากัน
+======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =======================================================
+   2. Body & Layout – กำหนดพื้นหลังและการแสดงผลของ Body
+======================================================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('images/1013260.jpg') center center / cover no-repeat;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =======================================================
+   3. Sidebar – เมนูด้านข้างซ้าย
+======================================================= */
+.sidebar {
+    width: 25%;
+    min-width: 200px;
+    max-width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background: url('images/221532.jpg') center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #fff;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+    border: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+/* =======================================================
+   4. Logo – โลโก้แสดงใน Sidebar
+======================================================= */
+.logo {
+    color: #000;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.logo-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #000;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px #000;
+}
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* =======================================================
+   5. Navigation – เมนูนำทาง
+======================================================= */
+.nav {
+    list-style: none;
+}
+.nav li {
+    margin: 1rem 0;
+}
+.nav a,
+.menu-btn {
+    display: block;
+    color: #000;
+    font-size: 1.1rem;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.nav a:hover,
+.menu-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.nav a.active,
+.menu-btn.active {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+/* =======================================================
+   6. Content – พื้นที่หลักด้านขวา
+======================================================= */
+.content {
+    margin-left: 16.5%;
+    padding: 2rem;
+    height: 90vh;
+    overflow-y: auto;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* =======================================================
+   7. Page Content – หน้าต่างย่อยแต่ละเพจ
+======================================================= */
+.page-content {
+    display: none;
+    max-width: 1580px;
+    margin: 1rem auto;
+    transition: opacity 0.3s ease;
+}
+.page-content.active {
+    display: block;
+    opacity: 1;
+}
+.page-content:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =======================================================
+   8. Bonus & Result Boxes – กล่องแสดงผลต่าง ๆ
+======================================================= */
+.bonus-container,
+.bonus-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.bonus-box,
+.result-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    flex: none;
+}
+
+/* =======================================================
+   9. Input & Button – สไตล์สำหรับอินพุตและปุ่ม
+======================================================= */
+.input-style {
+    padding: 8px;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    border: none;
+    width: 100%;
+}
+
+.input-style:focus {
+    outline: 2px solid #4CAF50;
+    background-color: #444;
+}
+.input-style[readonly] {
+    background: #555;
+    color: #eee;
+}
+
+.btn-submit {
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+.btn-submit:hover {
+    background: #45a049;
+}
+.btn-submit:focus {
+    outline: 2px solid #2e7d32;
+}
+
+/* =======================================================
+   10. Output Box – กล่องแสดงผลแบบข้อความ
+======================================================= */
+.output-box {
+    white-space: pre-line;
+    min-height: 100px;
+    padding: 10px;
+    background: transparent;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.output-box:hover {
+    background-color: rgba(8, 8, 8, 0.1);
+}
+
+/* =======================================================
+   11. Chat Container – กล่องรวม Chat
+======================================================= */
+.chat-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    max-width: 1600px;
+    margin: 2rem auto 0;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+.category-title {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #000;
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    border-radius: 6px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.chat-box {
+    flex: 1 1 320px;
+    max-width: 360px;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    position: relative;
+    border: 1px solid #333;
+    white-space: pre-line;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.chat-box:hover {
+    transform: translateY(-8px);
+    background-color: #2a2a2a;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    border-color: #555;
+}
+
+.chat-box::after {
+    content: "คลิกเพื่อคัดลอก";
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 10px;
+    color: #666;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.chat-box:hover::after {
+    opacity: 1;
+}
+
+/* =======================================================
+   12. Copy Notification – แจ้งเตือนหลังคัดลอก
+======================================================= */
+.copy-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+.copy-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideIn 0.3s forwards;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =======================================================
+   13. Hidden Utility – ซ่อนองค์ประกอบ
+======================================================= */
+.hidden {
+    display: none;
+}
+
+/* =======================================================
+   14. Responsive Design – รองรับมือถือและแท็บเล็ต
+======================================================= */
+@media (max-width: 768px) {
+    .bonus-box,
+    .result-box {
+        flex: 1 1 100%;
+    }
+    .sidebar {
+        width: 250px;
+    }
+    .content {
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        background-color: #222;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .content {
+        margin-left: 0;
+    }
+    .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        background-color: #0c8;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        color: #000;
+        font-weight: bold;
+        z-index: 1100;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease;
+    }
+    .mobile-menu-btn:hover {
+        background-color: #0a6;
+    }
+}
